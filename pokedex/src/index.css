@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+	--color-fire: #ff7402;
+	--color-grass: #9bcc50;
+	--color-steel: #9eb7b8;
+	--color-water: #4592c4;
+	--color-psychic: #f366b9;
+	--color-ground: #ab9842;
+	--color-ice: #51c4e7;
+	--color-flying: #3dc7ef;
+	--color-ghost: #4d5b64;
+	--color-normal: #a4acaf;
+	--color-poison: #7e0058;
+	--color-rock: #a38c21;
+	--color-fighting: #d56723;
+	--color-dark: #707070;
+	--color-bug: #729f3f;
+	--color-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+	--color-electric: #bba909;
+	--color-fairy: #fdb9e9;
+	--color-shadow: #7b62a3;
+	--color-unknow: #757575;
+
+	--color-primary: #006d77;
+	--color-primary-hover: #83c5be;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Globales */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Header */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    background-color: rgb(126, 126, 124);
+    height: 95px;
+	padding: 40px 50px;
+    margin-bottom: 50px;
+}
+
+.logo img {
+	width: 150px;
+}
+
+header form {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.form-group {
+  background-color: #fff;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid #555;
+	padding: 15px 20px;
+	border-radius: 25px;
+}
+
+.form-group input {
+	font-family: inherit;
+	width: 300px;
+	border: none;
+	outline: none;
+	font-size: 15px;
+}
+
+.icon-search {
+	width: 20px;
+	height: 20px;
+	stroke: #555;
+}
+
+.btn-search {
+	border: none;
+	outline: none;
+	border-radius: 25px;
+	padding: 15px 30px;
+	font-family: inherit;
+	color: #fff;
+	background-color: rgb(250, 76, 76);
+	cursor: pointer;
+	font-weight: 500;
+	letter-spacing: 2px;
+}
+
+.btn-search:hover {
+	background-color: rgb(146, 19, 19);
+	color: #fff;
+}
+
+/* Btn Filter */
+.container-filter {
+	display: flex;
+}
+
+.icon-filter {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.icon-filter .icon {
+	width: 30px;
+	height: 30px;
+	stroke: #555;
+}
+
+/* Card List Pokemon */
+.card-list-pokemon {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+}
+
+.card-pokemon {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.card-img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+}
+
+.card-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.card-info {
+	padding: 15px;
+	border: 1px solid red;
+	border-radius: 10px;
+	border-top: none;
+}
+
+.card-info h3 {
+	color: #333;
+}
+
+.pokemon-id {
+	display: block;
+	color: #888;
+	margin-bottom: 15px;
+}
+
+.card-types {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.card-types span {
+	font-size: 12px;
+	padding: 5px 20px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+/* Types of Pokemon */
+.water {
+	background-color: var(--color-water);
+}
+
+.grass {
+	background-color: var(--color-grass);
+}
+
+.poison {
+	background-color: var(--color-poison);
+}
+
+.fire {
+	background-color: var(--color-fire);
+}
+
+.bug {
+	background-color: var(--color-bug);
+}
+
+.dragon {
+	background: var(--color-dragon);
+}
+
+.flying {
+	background-color: var(--color-flying);
+}
+
+.ground {
+	background-color: var(--color-ground);
+}
+
+.steel {
+	background-color: var(--color-steel);
+}
+
+.psychic {
+	background-color: var(--color-psychic);
+}
+
+.ice {
+	background-color: var(--color-ice);
+}
+
+.ghost {
+	background-color: var(--color-ghost);
+}
+
+.normal {
+	background-color: var(--color-normal);
+}
+
+.rock {
+	background-color: var(--color-rock);
+}
+
+.electric {
+	background-color: var(--color-electric);
+}
+
+.fighting {
+	background-color: var(--color-fighting);
+}
+
+.fairy {
+	background-color: var(--color-fairy);
+}
+
+.dark {
+	background-color: var(--color-dark);
+}
+
+/* Container Filters */
+.container-filters {
+	display: flex;
+	justify-content: center;
+
+	position: fixed;
+	top: 0;
+	left: -300px;
+	width: 250px;
+
+	color: #555;
+	background-color: #f2f2f2;
+	height: 100%;
+	padding-top: 20px;
+	transition: all 0.3s linear;
+}
+
+.container-filters.active {
+	left: 0;
+}
+
+.filter-by-type {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.filter-by-type span {
+	font-weight: 700;
+	font-size: 25px;
+}
+
+.group-type {
+	display: flex;
+	gap: 10px;
+
+	margin-left: 5px;
+}
+
+.group-type label {
+	cursor: pointer;
+}
+
+/* 
+======================================= 
+Styles of Pokemon Single Page
+======================================= 
+*/
+
+.main-pokemon {
+	display: flex;
+	flex-direction: column;
+
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+.header-main-pokemon {
+	margin-top: 20px;
+
+	display: flex;
+	align-items: center;
+
+	position: relative;
+}
+
+.number-pokemon {
+	position: absolute;
+	top: -130px;
+	left: 0;
+
+	font-size: 200px;
+	font-weight: 700;
+	color: var(--color-primary-hover);
+}
+
+.container-img-pokemon {
+	order: 2;
+	flex: 1;
+	padding: 25px 25px 25px 0;
+	height: 400px;
+}
+
+.container-img-pokemon img {
+	height: 100%;
+	width: 100%;
+}
+
+.container-info-pokemon {
+	display: flex;
+	flex-direction: column;
+
+	order: 1;
+	flex: 1;
+}
+
+.container-info-pokemon h1 {
+	text-align: right;
+	font-size: 60px;
+}
+
+.info-pokemon {
+	display: flex;
+	justify-content: space-between;
+
+	margin-top: 20px;
+}
+
+.group-info{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.group-info p {
+	font-weight: 700;
+	font-size: 20px;
+}
+
+/* Stats */
+.container-stats {
+	display: flex;
+	gap: 50px;
+	align-items: center;
+	flex-direction: column;
+}
+
+.stats {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex: 1;
+	width: 100%;
+}
+
+.stat-group {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.stat-group span {
+	flex: 0 0 100px;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  background-color: var(--color-primary);
+}
+
+/* Colors for stats */
+.hp {
+  background-color: #ff5959;
+}
+
+.attack {
+  background-color: #f7b32b;
+}
+
+.defense {
+  background-color: #1982c4;
+}
+
+.special-attack {
+  background-color: #6a4c93;
+}
+
+.special-defense {
+  background-color: #8ac926;
+}
+
+.speed {
+  background-color: #ffca3a;
+}
+
+.counter-stat {
+	min-width: 35px;
+	text-align: right;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+/* Search Page */
+.p-search{
+	margin-bottom: 30px;
+	font-size: 22px;
+}
+
+.p-search span{
+	font-weight: 700;
+}
+
+/* Loader */
+.container-loader{
+	display: flex;
+	justify-content: center;
+	margin: 200px 0;
+}
+
+/* Btn Load More */
+.container-btn-load-more{
+	display: flex;
+	justify-content: center;
+
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.btn-load-more{
+	border: none;
+	padding: 15px 40px;
+	font-family: inherit;
+	background-color: var(--color-primary);
+	color: #fff;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.btn-load-more:hover{
+	background-color: var(--color-primary-hover);
+	color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.card-list-pokemon {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	header {
+		flex-direction: column;
+		padding: 12px;
+	}
+
+	.form-group input {
+		width: 150px;
+		padding: 5px;
+	}
+
+	.btn-search {
+		padding: 10px 15px;
+		font-size: 14px;
+		height: 55px;
+		width: 100px;
+	}
+
+	.main-pokemon {
+		margin-top: 70px;
+	}
+
+	.header-main-pokemon {
+		flex-direction: column;
+	}
+
+	.number-pokemon {
+		position: relative;
+		top: 0;
+		font-size: 100px;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+
+	.container-img-pokemon {
+		height: 250px;
+		padding: 0;
+		order: 0;
+		width: 100%;
+	}
+
+	.container-info-pokemon {
+		order: 1;
+		width: 100%;
+	}
+
+	.container-info-pokemon h1 {
+		font-size: 36px;
+		text-align: center;
+	}
+
+	.info-pokemon {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.group-info p, .group-info span {
+		font-size: 14px;
+	}
+
+	.container-stats {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	.stat-group span {
+		flex: 0 0 90px;
+		font-size: 14px;
+	}
+
+	.progress-bar-container {
+		height: 15px;
+		margin: 0 5px;
+	}
+
+	.counter-stat {
+		font-size: 12px;
+		min-width: 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.card-list-pokemon {
+		grid-template-columns: 1fr;
+	}
+
+	.form-group input {
+		width: 150px;
+	}
+
+}
